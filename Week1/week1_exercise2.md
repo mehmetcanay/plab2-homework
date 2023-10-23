@@ -41,7 +41,18 @@ Worked 2 years in Molecular Bacteriology Laboratory
 ![bg right:40%](https://i.pinimg.com/originals/89/d9/5a/89d95a6ee727c90ebe9d7a76c03e259b.gif)
 
 ---
-# Q&A
+
+# Favorite Video Games
+
+Name | Metacritic Score
+------------ | -------------
+Mass Effect 2 | 96
+Mass Effect 3 | 93
+Mass Effect 1 | 91
+
+---
+
+# Thank you for listening to me! - Q&A
 ```python  
 class Guru:
     def __init__(self): self.q=[]
