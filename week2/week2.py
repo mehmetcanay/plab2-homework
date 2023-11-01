@@ -131,7 +131,7 @@ class Protein:
 class Fasta:
     def __init__(self, file_path: str) -> None:
         """
-        Fasta class represents a FASTA file containing RNA sequences.
+        Fasta class represents a FASTA file containing DNA sequences.
 
         Args:
             file_path (str): Path to the FASTA file.
@@ -150,7 +150,7 @@ class Fasta:
     
     def _transcription(self, sequence:str) -> str:
         """
-        Transcribes the given DNA strand
+        Transcribes the given DNA sequence to RNA sequence
 
         Args:
             sequence (str): DNA sequence
@@ -164,43 +164,42 @@ class Fasta:
 
     def read_sequences(self) -> list[str]:
         """
-        Read RNA sequences from the FASTA file and return a list of RNA instances.
+        Reads a FASTA file and returns a list of DNA sequences.
 
         Returns:
-            list[RNA]: List of RNA instances.
+            sequences (list[str]): List of DNA sequences.
         """
         path: str = self.file_path
-        rna_sequences: list[str] = []
+        sequences: list[str] = []
         with open(path, 'r') as fasta_file:
             sequence: str = ''
             for line in fasta_file:
                 line: str = line.strip()
                 if line.startswith('>'):
-                    # If a new sequence starts, create an RNA instance for the previous sequence
+                    # If a new sequence starts, append the current sequence to sequences list
                     if sequence:
-                        rna_sequences.append(sequence)
+                        sequences.append(sequence)
                     # Start a new sequence
                     sequence = ''
                 else:
                     # Append sequence lines
                     sequence += line
-            # Create an RNA instance for the last sequence in the file
+            # Append the last sequence in the file to sequences list
             if sequence:
-                sequence = self._transcription(sequence)
-                rna_sequences.append(sequence)
+                sequences.append(sequence)
 
         # Return the list of RNAs
-        return rna_sequences
+        return sequences
     
     def export_sequences(self, sequences: list[str]) -> list[RNA]:
         """
-        Generates a list of RNA instances from list of nucleotide sequences
+        Generates a list of RNA instances from list of DNA sequences
 
         Args:
-            sequences (list[str]): A list of nucleotide sequences
+            sequences (list[str]): A list of DNA sequences
 
         Returns:
-            list[RNA]: A list of RNA instances
+            RNA_sequences (list[RNA]): A list of RNA instances
         """        
         
         RNA_sequences: list[RNA] = []
