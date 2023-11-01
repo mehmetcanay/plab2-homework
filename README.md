@@ -1,7 +1,7 @@
-# Exercises
+# Homework by Mehmet Can Ay
+
+## Exercises
 Submitted exercises for the Programming Lab II course.
 
-- [Week1](Week1)
-
-# Authors
-Mehmet Can Ay
+- [week1](week1)
+- [week2](week2)
