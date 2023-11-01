@@ -162,7 +162,7 @@ class Fasta:
         return sequence
 
 
-    def read_sequences(self) -> list[RNA]:
+    def read_sequences(self) -> list[str]:
         """
         Read RNA sequences from the FASTA file and return a list of RNA instances.
 
@@ -170,7 +170,7 @@ class Fasta:
             list[RNA]: List of RNA instances.
         """
         path: str = self.file_path
-        rna_sequences: list[RNA] = []
+        rna_sequences: list[str] = []
         with open(path, 'r') as fasta_file:
             sequence: str = ''
             for line in fasta_file:
@@ -178,8 +178,7 @@ class Fasta:
                 if line.startswith('>'):
                     # If a new sequence starts, create an RNA instance for the previous sequence
                     if sequence:
-                        sequence = self._transcription(sequence)
-                        rna_sequences.append(RNA(sequence))
+                        rna_sequences.append(sequence)
                     # Start a new sequence
                     sequence = ''
                 else:
@@ -188,7 +187,26 @@ class Fasta:
             # Create an RNA instance for the last sequence in the file
             if sequence:
                 sequence = self._transcription(sequence)
-                rna_sequences.append(RNA(sequence))
+                rna_sequences.append(sequence)
 
         # Return the list of RNAs
         return rna_sequences
+    
+    def export_sequences(self, sequences: list[str]) -> list[RNA]:
+        """
+        Generates a list of RNA instances from list of nucleotide sequences
+
+        Args:
+            sequences (list[str]): A list of nucleotide sequences
+
+        Returns:
+            list[RNA]: A list of RNA instances
+        """        
+        
+        RNA_sequences: list[RNA] = []
+        for sequence in sequences:
+            RNA_sequence: str = self._transcription(sequence)
+            RNA_sequences.append(RNA(RNA_sequence))
+
+        return RNA_sequences
+
