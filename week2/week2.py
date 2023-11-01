@@ -188,7 +188,7 @@ class Fasta:
             if sequence:
                 sequences.append(sequence)
 
-        # Return the list of RNAs
+        # Return the list of DNA sequences
         return sequences
     
     def export_sequences(self, sequences: list[str]) -> list[RNA]:
