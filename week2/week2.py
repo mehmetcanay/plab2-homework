@@ -202,10 +202,17 @@ class Fasta:
             RNA_sequences (list[RNA]): A list of RNA instances
         """        
         
+        # Initialize a list to hold RNA instances
         RNA_sequences: list[RNA] = []
+
+        # Iterate over the list of DNA sequences,
+        # transcribe the sequences into RNA sequences.
+        # Create RNA instances with RNA sequences and append
+        # them to RNA_sequences list
         for sequence in sequences:
             RNA_sequence: str = self._transcription(sequence)
             RNA_sequences.append(RNA(RNA_sequence))
 
+        # Return the list of RNA instances
         return RNA_sequences
 
