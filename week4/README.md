@@ -1,7 +1,7 @@
-# Restriction Enzyme
+# Week4 Homework
 
 **Table of content**
-- [Restriction Enzyme](#restriction-enzyme)
+- [Week4 Homework](#week4-homework)
   - [Summary](#summary)
   - [Objectives](#objectives)
   - [Material and Methods](#material-and-methods)
