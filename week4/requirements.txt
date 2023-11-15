@@ -1,0 +1,1 @@
+-e git+ssh://git@gitlab.informatik.uni-bonn.de/aym0/restriction_enzyme.git@de11fff69e7d41830749c1f970d97794de5668e7#egg=restriction_enzyme
