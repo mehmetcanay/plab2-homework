@@ -45,7 +45,7 @@ The database contains unique identifiers for each graph, links to other database
 pandas, numpy, lxml
 
 ### Data
-1. [Homo sapiens SQL Database](./data/homo_sapiens.db)
+1. [*Homo sapiens* SQL Database](./data/homo_sapiens.db)
 2. [WikiPathways SQL Database](./data/pathways.db)
-3. [Homo sapiens Sampled Data](./data/sampled_wikipathways.csv)
+3. [*Homo sapiens* Sampled Data](./data/homo_sapiens.csv)
 4. [WikiPathways Table](./data/pathways.csv)
