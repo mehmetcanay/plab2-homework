@@ -44,3 +44,4 @@ Creating phpMyAdmin and neo4j databases by using docker files with Podman.
 1. [Interaction table](./data/interaction.tsv.zip)
 2. [Protein table](./data/protein.tsv.zip)
 3. [Student data](./data/students.tsv)
+4. [Student interaction data](./data/student_interaction.tsv)
