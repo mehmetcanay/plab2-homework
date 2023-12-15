@@ -1,0 +1,6 @@
+pymysql
+pandas
+cryptography
+sqlalchemy
+neo4j
+tqdm

@@ -1,0 +1,59 @@
+version: "1.0"
+name: plab2
+
+services:
+  phpmyadmin:
+    image: docker.io/phpmyadmin/phpmyadmin:latest
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+
+  mysql:
+    image: docker.io/library/mysql:latest
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_passwd
+      - MYSQL_DATABASE=plab2_db
+      - MYSQL_USER=plab2_user
+      - MYSQL_PASSWORD=plab2_passwd
+    volumes:
+      - plab2_mysql:/var/lib/mysql
+
+  neo4j:
+    image: docker.io/library/neo4j:latest
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - plab2_neo4j_data:/data
+      - plab2_neo4j_plugins:/var/lib/neo4j/plugins
+    environment:
+      NEO4J_AUTH: neo4j/neo4j_passwd
+
+  neodash:
+    image: docker.io/neo4jlabs/neodash
+    ports:
+      - "5005:5005"
+    environment:
+      NEO4J_HOST: neo4j
+      NEO4J_PORT: 7687
+    depends_on:
+      - neo4j
+
+  # grafana:
+  #   image: docker.io/grafana/grafana:latest
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - 'grafana_storage:/var/lib/grafana'
+  #   depends_on:
+  #     - mysql
+
+volumes:
+  plab2_neo4j_data:
+  plab2_neo4j_plugins:
+  plab2_mysql:
+  grafana_storage:
